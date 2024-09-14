@@ -1,0 +1,22 @@
+
+<div class="container">
+  <div class="row">
+<h1>Hola Mundo</h1>
+<p>Esto es un saludo...</p>
+<div>
+  {{title}}
+</div>
+<div>
+  la suma de 2+2 es {{2+2}}
+</div>
+
+<div>
+ el doble de 3 es {{duplicarNumero(3)}}
+</div>
+
+<h2>Datos de la Pelicula</h2>
+<div>El nombre de la pelicula es: {{pelicula.nombre| uppercase}}</div>
+<div>El precio de la pelicula : {{pelicula.precio|currency}}</div>
+<div>El año de la pelicula es: {{pelicula.fechaLanzamiento|date:"dd-MM-yy"}}</div>
+</div>
+</div>
