@@ -7,13 +7,16 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { FormsModule } from '@angular/forms';
 import { ProductoFilterPipe } from './product/producto-filter.pipe';
 import { OperasBasComponent } from './formularios/operas-bas/operas-bas.component';
+import { Ejemplo1Component } from './formularios/ejemplo1/ejemplo1.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     ProductoFilterPipe,
-    OperasBasComponent
+    OperasBasComponent,
+    Ejemplo1Component
   ],
   imports: [
     BrowserModule,

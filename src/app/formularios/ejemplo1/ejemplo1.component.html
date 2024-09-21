@@ -1,0 +1,20 @@
+<div>
+    <h1>Multiplica 2 números</h1>
+    <form [ngFormOptions]="formulario">
+      <div>
+        <label for="">
+          Primer número
+          <input formControlName="numero1" type="number" />
+        </label>
+      </div>
+      <div>
+        <label for="">
+          Segundo número
+          <input formControlName="numero2" type="number" />
+        </label>
+      </div>
+      <button (click)="multiNumeros()" type="submit">Multiplicar</button>
+      <p>El resultado es: {{ resultado }}</p>
+    </form>
+  </div>
+  
