@@ -1,0 +1,26 @@
+.container {
+  max-width: 600px;
+}
+
+h2 {
+  color: #007bff;
+}
+
+.text-danger {
+  font-size: 0.9rem;
+}
+
+.alert {
+  background-color: #f9f9f9;
+  border: 1px solid #007bff;
+}
+
+.btn[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.contenedor-principal {
+  background-color: aqua;
+  padding: 30px;
+}

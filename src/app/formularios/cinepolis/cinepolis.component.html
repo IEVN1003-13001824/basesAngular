@@ -1,0 +1,71 @@
+<div class="container mt-5 contenedor-principal">
+  <h2 class="text-center mb-4">Compra de Boletos - Cinepolis</h2>
+
+  <!-- Usamos formGroup para enlazar el formulario reactivo -->
+  <form [formGroup]="formulario" (ngSubmit)="calcularTotal()">
+    
+    <div class="form-group">
+      <label for="nombre">Nombre del comprador</label>
+      <input 
+        type="text" 
+        id="nombre" 
+        class="form-control" 
+        formControlName="nombre" 
+        placeholder="Ingresa tu nombre"
+      />
+      <!-- Mostrar error si el campo es inválido -->
+      <div *ngIf="formulario.get('nombre')?.invalid && formulario.get('nombre')?.touched" class="text-danger">
+        El nombre es requerido.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cantidadCompradores">Cantidad de compradores</label>
+      <input 
+        type="number" 
+        id="cantidadCompradores" 
+        class="form-control" 
+        formControlName="cantidadCompradores" 
+        placeholder="Número de compradores"
+      />
+      <!-- Mostrar error si la cantidad de compradores es inválida -->
+      <div *ngIf="formulario.get('cantidadCompradores')?.invalid && formulario.get('cantidadCompradores')?.touched" class="text-danger">
+        Ingresa una cantidad válida de compradores.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cantidadBoletos">Cantidad total de boletos</label>
+      <input 
+        type="number" 
+        id="cantidadBoletos" 
+        class="form-control" 
+        formControlName="cantidadBoletos" 
+        placeholder="Número total de boletos"
+      />
+      <small class="form-text text-muted">Máximo de boletos: 7 por comprador.</small>
+      <!-- Mostrar error si la cantidad de boletos es inválida -->
+      <div *ngIf="formulario.get('cantidadBoletos')?.invalid && formulario.get('cantidadBoletos')?.touched" class="text-danger">
+        Ingresa una cantidad válida de boletos.
+      </div>
+    </div>
+
+    <div class="form-group form-check">
+      <input 
+        type="checkbox" 
+        id="cinecoCard" 
+        class="form-check-input" 
+        formControlName="cinecoCard" 
+      />
+      <label class="form-check-label" for="cinecoCard">Pago con tarjeta CINECO</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid">Calcular Total</button>
+  </form>
+
+  <!-- Mostrar el resultado solo si se ha calculado el total -->
+  <div *ngIf="total > 0" class="mt-4 alert alert-info">
+    <h5>Nombre: {{ formulario.get('nombre')?.value }}</h5>
+    <p>Total a pagar por {{ formulario.get('cantidadBoletos')?.value }} boletos: ${{ total.toFixed(2) }}</p>
+  </div>
+</div>
