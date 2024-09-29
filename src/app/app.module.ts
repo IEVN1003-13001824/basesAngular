@@ -10,6 +10,7 @@ import { OperasBasComponent } from './formularios/operas-bas/operas-bas.componen
 import { Ejemplo1Component } from './formularios/ejemplo1/ejemplo1.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CinepolisComponent } from './formularios/cinepolis/cinepolis.component';
+import { ResistenciasComponent } from './formularios/resistencias/resistencias.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CinepolisComponent } from './formularios/cinepolis/cinepolis.component'
     ProductoFilterPipe,
     OperasBasComponent,
     Ejemplo1Component,
-    CinepolisComponent
+    CinepolisComponent,
+    ResistenciasComponent
   ],
   imports: [
     BrowserModule,

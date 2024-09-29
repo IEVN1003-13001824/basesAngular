@@ -1,0 +1,62 @@
+<div class="container">
+  <h2>Resistencias</h2>
+  <form [formGroup]="resistenciaForm">
+    <div class="bandas">
+      <div class="banda1">
+        <label>Primera Banda</label>
+        <select formControlName="PrimeraBanda">
+          <option *ngFor="let color of valorColores | keyvalue" [value]="color.key">{{ color.key }}</option>
+        </select>
+      </div>
+
+      <div class="banda2">
+        <label>Segunda Banda</label>
+        <select formControlName="SegundaBanda">
+          <option *ngFor="let color of valorColores | keyvalue" [value]="color.key">{{ color.key }}</option>
+        </select>
+      </div>
+
+      <div class="banda3">
+        <label>Tercera Banda</label>
+        <select formControlName="TercerBanda">
+          <option *ngFor="let color of multValores | keyvalue" [value]="color.key">{{ color.key }}</option>
+        </select>
+      </div>
+
+      <div class="tolerancia">
+        <label>Tolerancia</label>
+        <select formControlName="Tolerancia">
+          <option *ngFor="let tol of selTolerancia | keyvalue" [value]="tol.key">{{ tol.key }}</option>
+        </select>
+      </div>
+
+      <button type="button" (click)="calcular()">Calcular</button>
+    </div>
+  </form>
+
+  <h3>Resultados:</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Primera Banda</th>
+        <th>Segunda Banda</th>
+        <th>Tercer Banda</th>
+        <th>Tolerancia</th>
+        <th>Valor</th>
+        <th>Min</th>
+        <th>Max</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let res of resistencias">
+        <td [style.background]="getColor(resistenciaForm.get('PrimeraBanda')?.value)" class="color-box">{{ res.primeraBanda }}</td>
+        <td [style.background]="getColor(resistenciaForm.get('SegundaBanda')?.value)" class="color-box">{{ res.segundaBanda }}</td>
+        <td [style.background]="getColor(resistenciaForm.get('TercerBanda')?.value)" class="color-box">{{ res.tercerBanda }}</td>
+        <td [style.background]="getColor(resistenciaForm.get('Tolerancia')?.value)" class="color-box">{{ res.tolerancia }}</td>
+        <td>{{ res.valor }}</td>
+        <td>{{ res.min }}</td>
+        <td>{{ res.max }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
